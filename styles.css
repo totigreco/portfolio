@@ -1,0 +1,649 @@
+/* Windows XP Paint Portfolio - CSS Only Version */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tahoma', 'Arial', sans-serif;
+  }
+  
+body {
+    background-image: url('./image.png'); /* Windows XP Bliss wallpaper */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+  /* Windows XP Desktop */
+  .xp-desktop {
+    min-height: 100vh;
+    padding: 16px;
+  }
+  
+  /* Main Window */
+  .xp-window {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 2px solid #A0A0A0;
+    border-radius: 5px 5px 0 0;
+    background-color: #ECE9D8;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Title Bar */
+  .xp-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    background: linear-gradient(to right, #0054E3, #2381E9);
+    color: white;
+    border-radius: 3px 3px 0 0;
+  }
+  
+  .xp-titlebar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .xp-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .xp-title {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .xp-window-controls {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .xp-button {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .xp-button:hover {
+    background-color: #B6BDD2;
+  }
+  
+  .xp-button.close:hover {
+    background-color: #FF0000;
+  }
+  
+  /* Menu Bar */
+  .xp-menubar {
+    display: flex;
+    padding: 2px 4px;
+    background-color: #ECE9D8;
+    border-bottom: 1px solid #A0A0A0;
+  }
+  
+  .xp-menu-item {
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .xp-menu-item:hover {
+    background-color: #0054E3;
+    color: white;
+  }
+  
+  /* Toolbar */
+  .xp-toolbar {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background-color: #ECE9D8;
+    border-bottom: 1px solid #A0A0A0;
+  }
+  
+  .xp-tool {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #A0A0A0;
+    background-color: #ECE9D8;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .xp-tool:hover {
+    background-color: #B6BDD2;
+  }
+  
+  /* Content Area */
+  .xp-content-wrapper {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* Sidebar */
+  .xp-sidebar {
+    width: 64px;
+    background-color: #F0EFE2;
+    border-right: 1px solid #A0A0A0;
+    padding: 4px;
+  }
+  
+  .xp-sidebar-tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  
+  .xp-sidebar-tool {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #A0A0A0;
+    background-color: #ECE9D8;
+    cursor: pointer;
+  }
+  
+  .xp-sidebar-tool:hover {
+    background-color: #B6BDD2;
+  }
+  
+  /* Canvas Area */
+  .xp-canvas-area {
+    flex: 1;
+    background-color: #D4D0C8;
+    padding: 4px;
+    overflow: auto;
+  }
+  
+  .xp-canvas {
+    background-color: white;
+    min-height: 500px;
+    border: 1px solid #A0A0A0;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    overflow: auto;
+  }
+  
+  /* Scrollbar */
+  .xp-scrollbar {
+    width: 16px;
+    background-color: #D4D0C8;
+    border-left: 1px solid #A0A0A0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .xp-scrollbar-top,
+  .xp-scrollbar-bottom {
+    height: 16px;
+    border-bottom: 1px solid #A0A0A0;
+    border-top: 1px solid #A0A0A0;
+  }
+  
+  .xp-scrollbar-middle {
+    flex: 1;
+  }
+  
+  /* Color Palette */
+  .xp-color-palette {
+    padding: 4px;
+    background-color: #ECE9D8;
+    border-top: 1px solid #A0A0A0;
+  }
+  
+  .xp-color-row {
+    display: flex;
+    margin-bottom: 4px;
+  }
+  
+  .xp-color-row:last-child {
+    margin-bottom: 0;
+  }
+  
+  .xp-color-picker {
+    width: 64px;
+    height: 32px;
+    margin-right: 8px;
+    border: 1px solid #A0A0A0;
+    background-color: black;
+    position: relative;
+  }
+  
+  .xp-color-picker::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background-color: white;
+  }
+  
+  .xp-color-picker::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+  }
+  
+  .xp-color {
+    width: 20px;
+    height: 16px;
+    border: 1px solid #A0A0A0;
+    cursor: pointer;
+  }
+  
+  .xp-color-spacer {
+    width: 64px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  /* Color swatches */
+  .xp-color.black { background-color: black; }
+  .xp-color.gray { background-color: gray; }
+  .xp-color.maroon { background-color: maroon; }
+  .xp-color.red { background-color: red; }
+  .xp-color.orange { background-color: orange; }
+  .xp-color.yellow { background-color: yellow; }
+  .xp-color.green { background-color: green; }
+  .xp-color.teal { background-color: teal; }
+  .xp-color.blue { background-color: blue; }
+  .xp-color.purple { background-color: purple; }
+  .xp-color.white { background-color: white; }
+  .xp-color.lightgray { background-color: #F5F5F5; }
+  
+  .xp-color.beige { background-color: #EFE4B0; }
+  .xp-color.lime { background-color: #B5E61D; }
+  .xp-color.lightblue { background-color: #99D9EA; }
+  .xp-color.darkblue { background-color: #7092BE; }
+  .xp-color.lavender { background-color: #C8BFE7; }
+  .xp-color.brightorange { background-color: #FF6100; }
+  .xp-color.pink { background-color: #FF00FF; }
+  .xp-color.tan { background-color: #E6D8AD; }
+  .xp-color.lightgreen { background-color: #CCE199; }
+  .xp-color.mediumgray { background-color: #C9C9C9; }
+  .xp-color.darkgray { background-color: #999999; }
+  .xp-color.charcoal { background-color: #3A3A3A; }
+  
+  /* Status Bar */
+  .xp-statusbar {
+    padding: 4px 8px;
+    background-color: #ECE9D8;
+    border-top: 1px solid #A0A0A0;
+    font-size: 11px;
+  }
+  
+  /* Portfolio Content Styles */
+  .portfolio-content {
+    padding: 16px;
+    color: #333;
+  }
+  
+  .portfolio-title {
+    font-size: 24px;
+    color: #39393A;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .portfolio-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    color: #555;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    color: #39393A;
+    margin: 24px 0 16px;
+    text-align: center;
+  }
+  
+  /* Projects Grid */
+  .projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  /* Project Cards */
+  .project-card {
+    width: 300px;
+    border: 2px solid #A0A0A0;
+    background-color: #ECE9D8;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .project-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    background: linear-gradient(to right, #0054E3, #2381E9);
+    color: white;
+  }
+  
+  .project-titlebar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .project-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .project-title {
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .project-window-controls {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .project-button {
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+  }
+  
+  .project-button.minimize::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: white;
+    margin: 7px auto;
+  }
+  
+  .project-button.maximize::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    margin: 3px auto;
+  }
+  
+  .project-button.close::before,
+  .project-button.close::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background: white;
+  }
+  
+  .project-button.close::before {
+    transform: rotate(45deg);
+  }
+  
+  .project-button.close::after {
+    transform: rotate(-45deg);
+  }
+  
+  .project-image {
+    height: 160px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .project-description {
+    padding: 12px;
+    background-color: #ECE9D8;
+  }
+  
+  .project-description p {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 12px;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .xp-btn {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    background-color: #ECE9D8;
+    border: 1px solid #A0A0A0;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1), inset 1px 1px 0px rgba(255, 255, 255, 0.7);
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .xp-btn:hover {
+    background-color: #B6BDD2;
+  }
+  
+  .xp-btn:active {
+    transform: translateY(1px);
+  }
+  
+  .project-statusbar {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #ECE9D8;
+    border-top: 1px solid #A0A0A0;
+  }
+  
+  .project-status-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #3CBA46;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  
+  .project-status-text {
+    font-size: 11px;
+    color: #444;
+  }
+  
+  /* About Section */
+  .about-section {
+    background-color: white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 24px auto;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  .profile-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #39393A;
+    background-color: #f0f0f0;
+  }
+  
+  .about-content {
+    padding: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      padding: 12px;
+    }
+  }
+  
+  .about-content p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  .skills h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .skill-tag {
+    padding: 4px 8px;
+    background-color: #ECE9D8;
+    border: 1px solid #A0A0A0;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    background-color: white;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 24px auto;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  
+  .contact-info,
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    background-color: #0054E3;
+    border-radius: 50%;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  
+  .social-link {
+    width: 32px;
+    height: 32px;
+    background-color: #ECE9D8;
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  
+  .contact-form h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #A0A0A0;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    padding: 8px 24px;
+    background-color: #0054E3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2381E9;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .xp-sidebar {
+      display: none;
+    }
+    
+    .xp-scrollbar {
+      display: none;
+    }
+    
+    .project-card {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .about-section,
+    .contact-section {
+      flex-direction: column;
+    }
+    
+    .profile-image {
+      margin: 0 auto;
+    }
+  }
