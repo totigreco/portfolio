@@ -9,7 +9,7 @@
   }
   
 body {
-    background-image: url('./image.png'); /* Windows XP Bliss wallpaper */
+    background-image: url('images/image.png'); /* Windows XP Bliss wallpaper */
     background-size: cover;
     background-position: center;
     padding: 20px;
